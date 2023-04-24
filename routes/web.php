@@ -34,10 +34,24 @@ Route::get('/dashboard', function () {
     ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/', function () {
+//    \Illuminate\Support\Facades\App::setlocale('ar');
+    return inertia('Dashboard', [
+        'canLogin' => true,
+        'message' => 'Bye',
+    ]);
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::fallback(function () {
+    return inertia('Error/404');
 });
 
 require __DIR__.'/auth.php';

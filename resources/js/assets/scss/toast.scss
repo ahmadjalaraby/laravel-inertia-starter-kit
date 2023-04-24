@@ -1,0 +1,8 @@
+.Vue-Toastification__toast.dashcode-toast {
+    @apply font-Inter text-sm shadow-base rounded-md;
+}
+
+.Vue-Toastification__toast.dashcode-toast-rtl {
+    direction: rtl !important;
+    font-family: 'Tajawal', "Lato", Helvetica, "Roboto", Arial, sans-serif !important;
+}

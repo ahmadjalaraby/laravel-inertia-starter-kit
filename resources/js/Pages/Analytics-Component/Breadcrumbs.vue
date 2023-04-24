@@ -33,8 +33,8 @@
   </div>
 </template>
 <script setup>
-import Breadcrumb from "@/components/Breadcrumbs/index.vue";
-import Icon from "@/components/Icon/index.vue";
+import Breadcrumb from "@/Components/Breadcrumbs/index.vue";
+import Icon from "@/Components/Icon/index.vue";
 import VueTailwindDatePicker from "vue-tailwind-datepicker";
 import { ref } from "vue";
 const dateValue = ref("");

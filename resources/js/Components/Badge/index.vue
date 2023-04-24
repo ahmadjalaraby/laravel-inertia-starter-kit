@@ -11,7 +11,7 @@
   </span>
 </template>
 <script>
-import Icon from "@/components/Icon/index.vue";
+import Icon from "@/Components/Icon/index.vue";
 export default {
   components: {
     Icon,

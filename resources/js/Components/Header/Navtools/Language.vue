@@ -100,7 +100,7 @@ const setLanguage = (languageCode) => {
     form.locale = languageCode
     change()
     // Optionally, reload the page to update translations and styles:
-    // location.reload();
+    location.reload();
 };
 
 </script>

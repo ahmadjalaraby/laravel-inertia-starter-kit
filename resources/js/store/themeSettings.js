@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { loadLanguageAsync } from 'laravel-vue-i18n';
+import {loadLanguageAsync, trans, reset, isLoaded} from 'laravel-vue-i18n';
 
 export const useThemeSettingsStore = defineStore('themeSettings',{
     state: () => ({
@@ -34,7 +34,6 @@ export const useThemeSettingsStore = defineStore('themeSettings',{
             document.body.classList.remove(this.theme);
             this.theme = this.theme === "dark" ? "light" : "dark";
             document.body.classList.add(this.theme);
-            console.log(this.theme);
             localStorage.setItem("theme", this.theme);
             localStorage.setItem("isDark", this.theme === 'dark');
         },
@@ -46,24 +45,30 @@ export const useThemeSettingsStore = defineStore('themeSettings',{
             } else {
                 document.documentElement.setAttribute("dir", "ltr");
             }
-            document.body.classList.remove(this.direction);
-            document.body.classList.add(this.direction);
+            // document.body.classList.remove(this.direction);
+            // document.body.classList.add(this.direction);
             localStorage.setItem("direction", this.direction);
         },
 
         changeLanguage(lang) {
             this.language = lang;
-            loadLanguageAsync(lang);
+
+            loadLanguageAsync(lang).then(r => {
+                // $i18n.locale = lang
+                return r
+            });
+
             if(lang === 'ar') {
                 this.toogleRtl(true);
-                document.body.classList.add("font-Tajawal")
-                document.body.classList.remove("font-sans")
+                // document.body.classList.remove("font-sans")
+                // document.body.classList.add("font-Tajawal")
             } else {
                 this.toogleRtl(false);
-                document.body.classList.add("font-sans")
-                document.body.classList.remove("font-Tajawal")
+                // document.body.classList.remove("font-Tajawal")
+                // document.body.classList.add("font-sans")
             }
             localStorage.setItem('language', this.language);
+
         },
 
         toggleMonochrome() {

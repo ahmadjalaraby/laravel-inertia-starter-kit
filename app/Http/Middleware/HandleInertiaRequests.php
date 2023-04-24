@@ -39,6 +39,9 @@ class HandleInertiaRequests extends Middleware
                     'location' => $request->url(),
                 ]);
             },
+            'locale' => function () {
+                return session()->get('locale');
+            },
         ]);
     }
 }

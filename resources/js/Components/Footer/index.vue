@@ -5,16 +5,16 @@
     >
       <div class="grid md:grid-cols-2 grid-cols-1 md:gap-5">
         <div class="text-center ltr:md:text-start rtl:md:text-right text-sm">
-          COPYRIGHT &copy; 2022 DashCode, All rights Reserved
+            {{ useI18n().t('dashboard.copyright', {year: new Date().getFullYear(), name: 'Scribble'}) }}
         </div>
         <div class="ltr:md:text-right rtl:md:text-end text-center text-sm">
-          Hand-crafted & Made by
+            {{ useI18n().t('dashboard.handcrafted') }}
           <a
-            href="https://codeshaper.net"
+            href="https://github.com/ahmadjalaraby"
             target="_blank"
             class="text-primary-500 font-semibold"
           >
-            Codeshaper
+            Ahmad Jehad
           </a>
         </div>
       </div>
@@ -23,9 +23,14 @@
 </template>
 <script>
 import {useThemeSettingsStore} from "@/store/themeSettings";
+import {useI18n} from "vue-i18n";
 
 export default {
+    setup() {
+        return useI18n()
+    },
   methods: {
+      useI18n,
       useThemeSettingsStore,
     footerClass() {
       switch (useThemeSettingsStore().footerType) {

@@ -83,7 +83,7 @@
               <MenuItem v-for="(item, i) in actions" :key="i">
                 <div
                   :class="`
-                
+
                   ${
                     item.name === 'delete'
                       ? 'bg-danger-500 text-danger-500 bg-opacity-30  hover:bg-opacity-100 hover:text-white'
@@ -118,9 +118,9 @@
   </div>
 </template>
 <script>
-import Dropdown from "@/components/Dropdown";
-import Icon from "@/components/Icon";
-import Pagination from "@/components/Pagination";
+import Dropdown from "@/Components/Dropdown/index.vue";
+import Icon from "@/Components/Icon/index.vue";
+import Pagination from "@/Components/Pagination/index.vue";
 import { MenuItem } from "@headlessui/vue";
 import { shapeLine4 } from "./data.js";
 

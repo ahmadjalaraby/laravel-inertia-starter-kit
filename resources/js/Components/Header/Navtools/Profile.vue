@@ -47,9 +47,12 @@
 </template>
 <script>
 import { MenuItem } from "@headlessui/vue";
-import Dropdown from "@/components/Dropdown/index.vue";
-import Icon from "@/components/Icon/index.vue";
-import profileImg from "@/assets/images/all-img/user.png"
+import Dropdown from "@/Components/Dropdown/index.vue";
+import Icon from "@/Components/Icon/index.vue";
+import profileImg from "@/assets/images/all-img/user.png";
+import {useI18n} from 'vue-i18n'
+
+
 export default {
   components: {
     Icon,
@@ -61,33 +64,12 @@ export default {
       profileImg,
       ProfileMenu: [
         {
-          label: $t('dashboard.profile'),
+          label: useI18n().t('dashboard.profile'),
           icon: "heroicons-outline:user",
           link: () => {
             this.$router.push("dashboard");
           },
         },
-        // {
-        //   label: "Chat",
-        //   icon: "heroicons-outline:chat",
-        //   link: () => {
-        //     this.$router.push("chat");
-        //   },
-        // },
-        // {
-        //   label: "Email",
-        //   icon: "heroicons-outline:mail",
-        //   link: () => {
-        //     this.$router.push("email");
-        //   },
-        // },
-        // {
-        //   label: "Todo",
-        //   icon: "heroicons-outline:clipboard-check",
-        //   link: () => {
-        //     this.$router.push("todo");
-        //   },
-        // },
         // {
         //   label: "Settings",
         //   icon: "heroicons-outline:cog",
@@ -95,25 +77,12 @@ export default {
         //     this.$router.push("settings");
         //   },
         // },
-        // {
-        //   label: "Price",
-        //   icon: "heroicons-outline:credit-card",
-        //   link: () => {
-        //     this.$router.push("pricing");
-        //   },
-        // },
-        // {
-        //   label: "Faq",
-        //   icon: "heroicons-outline:information-circle",
-        //   link: () => {
-        //     this.$router.push("faq");
-        //   },
-        // },
+
         {
-          label: $t('auth.logout'),
+          label: useI18n().t('auth.logout'),
           icon: "heroicons-outline:login",
           link: () => {
-            this.$router.push("/");
+            this.$inertia.post(route('logout'))
             localStorage.removeItem("activeUser");
           },
         },

@@ -50,7 +50,7 @@ import {
   ListboxOptions,
   ListboxOption,
 } from "@headlessui/vue";
-import Icon from "@/components/Icon/index.vue";
+import Icon from "@/Components/Icon/index.vue";
 const months = [{ name: "January" }, { name: "February" }, { name: "March" }];
 const selectedMonth = ref(months[0]);
 </script>

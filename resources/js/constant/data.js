@@ -3,61 +3,64 @@ import user2Img from "@/assets/images/all-img/user2.png";
 import user3Img from "@/assets/images/all-img/user3.png";
 import user4Img from "@/assets/images/all-img/user4.png";
 
-export const menuItems = [
-    {
-        isHeadr: true,
-        title: "menu",
-    },
-    {
-        title: "Dashboard",
-        icon: "heroicons-outline:home",
-        link: "dashboard",
-    },
-];
+
+
+
+// export const menuItems = [
+//     {
+//         isHeadr: true,
+//         title: $t('dashboard.menu'),
+//     },
+//     {
+//         title: $t('dashboard.dashboard'),
+//         icon: "heroicons-outline:home",
+//         link: "dashboard",
+//     },
+// ];
 // menuseetins
 
-export const ProfileMenu = [
-    {
-        label: "Profile",
-        icon: "heroicons-outline:user",
-        link: "#",
-    },
-    {
-        label: "Chat",
-        icon: "heroicons-outline:chat",
-        link: "chat",
-    },
-    {
-        label: "Email",
-        icon: "heroicons-outline:mail",
-        link: "email",
-    },
-    {
-        label: "Todo",
-        icon: "heroicons-outline:chip",
-        link: "todo",
-    },
-    {
-        label: "Settings",
-        icon: "heroicons-outline:cog",
-        link: "#",
-    },
-    {
-        label: "Price",
-        icon: "heroicons-outline:credit-card",
-        link: "pricing",
-    },
-    {
-        label: "Faq",
-        icon: "heroicons-outline:information-circle",
-        link: "faq",
-    },
-    {
-        label: "Logout",
-        icon: "heroicons-outline:login",
-        link: "/",
-    },
-];
+// export const ProfileMenu = [
+//     {
+//         label: t('dashboard.profile'),
+//         icon: "heroicons-outline:user",
+//         link: "#",
+//     },
+//     {
+//         label: "Chat",
+//         icon: "heroicons-outline:chat",
+//         link: "chat",
+//     },
+//     {
+//         label: "Email",
+//         icon: "heroicons-outline:mail",
+//         link: "email",
+//     },
+//     {
+//         label: "Todo",
+//         icon: "heroicons-outline:chip",
+//         link: "todo",
+//     },
+//     {
+//         label: "Settings",
+//         icon: "heroicons-outline:cog",
+//         link: "#",
+//     },
+//     {
+//         label: "Price",
+//         icon: "heroicons-outline:credit-card",
+//         link: "pricing",
+//     },
+//     {
+//         label: "Faq",
+//         icon: "heroicons-outline:information-circle",
+//         link: "faq",
+//     },
+//     {
+//         label: t('auth.logout'),
+//         icon: "heroicons-outline:login",
+//         link: "/",
+//     },
+// ];
 
 export const notifications = [
     {

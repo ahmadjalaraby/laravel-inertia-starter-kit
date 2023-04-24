@@ -1,5 +1,10 @@
 import guest from "@/middleware/guest";
-import auth from "@/middleware/guest";
+import auth from "@/middleware/auth";
+
+import {createI18n} from "vue-i18n";
+
+const { global : {t, locale}} = createI18n()
+
 
 const routes = [
     {
@@ -10,8 +15,13 @@ const routes = [
         // beforeEnter: auth,
         children: [
             {
+                path: "/",
+                name: 'dashboard',
+                component: () => import("@/Pages/Dashboard.vue"),
+            },
+            {
                 path: "/dashboard",
-                name: "dashboard",
+                name: 'dashboard',
                 component: () => import("@/Pages/Dashboard.vue"),
             },
             {
@@ -30,5 +40,11 @@ const routes = [
         // beforeEnter: guest,
         component: () => import("@/Pages/Auth/Login.vue"),
     },
+    {
+        path: "/:catchAll(.*)",
+        name: "404",
+        component: () => import("@/Pages/Error/404.vue"),
+    },
+
 ];
 export default routes;

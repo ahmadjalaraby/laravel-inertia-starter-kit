@@ -80,10 +80,10 @@
                 class="inline-block text-center mx-auto py-1"
                 :class="`${
                   props.row.status === 'paid' ? 'text-success-500 ' : ''
-                } 
+                }
             ${props.row.status === 'due' ? 'text-warning-500 ' : ''}
             ${props.row.status === 'cancled' ? 'text-danger-500' : ''}
-            
+
              `"
               >
                 <span v-if="props.row.status === 'due'">+$ 1,200.00</span>
@@ -103,7 +103,7 @@
                   <MenuItem v-for="(item, i) in actions" :key="i">
                     <div
                       :class="`
-                
+
                   ${
                     item.name === 'delete'
                       ? 'bg-danger-500 text-danger-500 bg-opacity-30  hover:bg-opacity-100 hover:text-white'
@@ -140,13 +140,13 @@
   </div>
 </template>
 <script>
-import Card from "@/components/Card";
-import Dropdown from "@/components/Dropdown";
-import Icon from "@/components/Icon";
-import InputGroup from "@/components/InputGroup";
-import Pagination from "@/components/Pagination";
+import Card from "@/Components/Card/index.vue";
+import Dropdown from "@/Components/Dropdown/index.vue";
+import Icon from "@/Components/Icon/index.vue";
+import InputGroup from "@/Components/InputGroup/index.vue";
+import Pagination from "@/Components/Pagination/index.vue";
 import { MenuItem } from "@headlessui/vue";
-import { advancedTable } from "../../../constant/basic-tablle-data";
+import { advancedTable } from "@/constant/basic-tablle-data";
 
 export default {
   components: {

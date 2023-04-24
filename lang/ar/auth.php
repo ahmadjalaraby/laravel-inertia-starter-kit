@@ -7,4 +7,6 @@ return [
     'remember_me' => 'تذكرني',
     'login' => 'تسجيل الدخول',
     'logout' => 'تسجيل الخروج',
+    'login_to_admin_panel' => 'تسجيل الدخول لحساب الأدمين',
+    'login_successfully' => 'تم تسجيل الدخول بنجاح.',
 ];

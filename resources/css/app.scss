@@ -26,6 +26,22 @@
         @apply h-full;
     }
 
+    html,
+    body:lang(ar) {
+        @apply font-Tajawal;
+    }
+
+    html,
+    body:lang(en) {
+        @apply font-sans;
+    }
+
+
+    //.font-arabic {
+    //    html, body {
+    //        @apply font-Tajawal;
+    //    }
+    //}
     .app-wrapper {
         @apply relative;
     }
@@ -142,9 +158,6 @@
         margin-left: 10px !important;
     }
 
-    .font-arabic {
-        @apply font-Tajawal;
-    }
 }
 
 @layer components {
@@ -164,6 +177,11 @@
 
     .Vue-Toastification__toast.dashcode-toast {
         @apply font-Inter text-sm shadow-base rounded-md;
+    }
+
+    .Vue-Toastification__toast.dashcode-toast-rtl {
+        direction: rtl !important;
+        font-family: 'Tajawal', "Lato", Helvetica, "Roboto", Arial, sans-serif !important;
     }
 }
 

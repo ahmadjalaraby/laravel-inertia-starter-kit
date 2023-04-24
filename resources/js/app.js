@@ -7,12 +7,21 @@ import {ZiggyVue} from '../../vendor/tightenco/ziggy/dist/vue.m';
 import {createPinia} from 'pinia'
 import router from './router/index'
 import AuthenticatedLayout from './Layouts/AuthenticatedLayout.vue'
-import {i18nVue, loadLanguageAsync} from 'laravel-vue-i18n'
+import {i18nVue} from 'laravel-vue-i18n'
 import {useThemeSettingsStore} from "@/store/themeSettings";
+import {createI18n} from "vue-i18n";
+import Locale from './vue-i18n-locales.js';
+import Toast, { POSITION } from "vue-toastification";
+import "vue-toastification/dist/index.css";
+import "./assets/scss/auth.scss";
+import "./assets/scss/tailwind.scss";
+import "./assets/scss/toast.scss";
+
 
 const pinia = createPinia()
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
+
 
 
 createInertiaApp({
@@ -30,23 +39,41 @@ createInertiaApp({
         return page
     },
     setup({el, App, props, plugin}) {
+        const locale =  props.initialPage.props.locale ?? localStorage.language
+        const i18n = createI18n({
+            locale: locale,
+            globalInjection: true,
+            fallbackLocale: 'en',
+            messages: Locale,
+            legacy: false,
+            missingWarn: false,
+            fallbackWarn: false,
+        })
+
+
         createApp({render: () => h(App, props)})
-            .use(i18nVue, {
-                resolve: lang => {
-                    const langs = import.meta.globEager('../../lang/*.json');
-                    return langs[`../../lang/${lang}.json`].default;
-                },
-            },)
             .use(plugin)
+            .use(i18n)
+            .use(i18nVue, {
+                resolve: async (lang) => {
+                    const langs = import.meta.glob('../../lang/*.json');
+                    return await langs[`../../lang/php_${lang}.json`]();
+                }
+            })
             .use(pinia)
+            .use(Toast, {
+                toastClassName: `dashcode-toast ${locale === 'ar' ? 'dashcode-toast-rtl' : '' }`,
+                bodyClassName: `dashcode-toast-body`,
+                position: locale === 'ar' ? POSITION.TOP_LEFT : POSITION.TOP_RIGHT,
+                shareAppContext: true,
+                // rtl: locale === 'ar',
+            })
             .use(router)
             .use(ZiggyVue, Ziggy)
             .mount(el);
         const themeSettingsStore = useThemeSettingsStore()
 
 
-        console.log(localStorage.getItem("theme"))
-        console.log(localStorage.getItem("isDark"))
 // check localStorage theme for dark light bordered
         if (localStorage.theme === "dark" || localStorage.getItem("isDark") === 'true' ) {
             document.body.classList.add("dark");
@@ -82,13 +109,10 @@ createInertiaApp({
             document.body.classList.add("skin--default");
         }
 
-
         if(localStorage.language === 'ar') {
             useThemeSettingsStore().changeLanguage('ar')
-
         } else {
             useThemeSettingsStore().changeLanguage('en')
-
         }
 
 // check direction for localstorage
@@ -107,6 +131,6 @@ createInertiaApp({
         }
     },
     progress: {
-        color: '#4B5563',
+        color: '#003e99',
     },
 });

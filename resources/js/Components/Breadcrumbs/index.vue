@@ -9,7 +9,7 @@
       "
             class="font-medium lg:text-2xl text-xl capitalize text-slate-900 inline-block ltr:pr-4 rtl:pl-4"
         >
-            {{ this.$route.name.replace("-", " ") }}
+            {{ useI18n().t('dashboard.'+this.$route.name.replace("-", "")) }}
         </h4>
         <ul class="breadcrumbs" v-if="this.$route.meta.groupParent">
             <li class="text-primary-500">
@@ -35,8 +35,11 @@
     </div>
 </template>
 <script>
-import Icon from "@/components/Icon/index.vue";
+import Icon from "@/Components/Icon/index.vue";
+import {useI18n} from "vue-i18n";
+
 export default {
+    methods: {useI18n},
     components: {
         Icon,
     },

@@ -35,6 +35,6 @@
     </div>
 </template>
 <script setup>
-import Icon from "@/components/Icon/index.vue";
+import Icon from "@/Components/Icon/index.vue";
 </script>
 <style lang=""></style>

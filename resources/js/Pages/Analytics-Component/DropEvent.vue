@@ -21,8 +21,8 @@
   </div>
 </template>
 <script>
-import Dropdown from "@/components/Dropdown/index.vue";
-import Icon from "@/components/Icon/index.vue";
+import Dropdown from "@/Components/Dropdown/index.vue";
+import Icon from "@/Components/Icon/index.vue";
 import { MenuItem } from "@headlessui/vue";
 export default {
   components: {

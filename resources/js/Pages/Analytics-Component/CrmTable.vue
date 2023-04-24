@@ -51,7 +51,7 @@
               props.row.status === 'paid'
                 ? 'text-success-500 bg-success-500'
                 : ''
-            } 
+            }
             ${
               props.row.status === 'due'
                 ? 'text-warning-500 bg-warning-500'
@@ -62,7 +62,7 @@
                 ? 'text-danger-500 bg-danger-500'
                 : ''
             }
-            
+
              `"
           >
             {{ props.row.status }}
@@ -116,10 +116,10 @@
   </div>
 </template>
 <script>
-import Icon from "@/components/Icon";
-import Tooltip from "@/components/Tooltip";
-import Pagination from "@/components/Pagination";
-import { advancedTable } from "../../../constant/basic-tablle-data";
+import Icon from "@/Components/Icon/index.vue";
+import Tooltip from "@/Components/Tooltip/index.vue";
+import Pagination from "@/Components/Pagination/index.vue";
+import { advancedTable } from "@/constant/basic-tablle-data";
 export default {
   components: {
     Pagination,

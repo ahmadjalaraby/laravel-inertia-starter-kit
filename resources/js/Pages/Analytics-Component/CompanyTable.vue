@@ -72,8 +72,8 @@
   </div>
 </template>
 <script>
-import Pagination from "@/components/Pagination/index.vue";
-import Icon from "@/components/Icon/index.vue";
+import Pagination from "@/Components/Pagination/index.vue";
+import Icon from "@/Components/Icon/index.vue";
 
 import { homeTable } from "@/constant/basic-tablle-data";
 

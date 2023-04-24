@@ -17,8 +17,9 @@ return [
     'remember_me' => 'Remember me',
     'login' => 'Login',
     'logout' => 'Logout',
+    'login_to_admin_panel' => 'Login in your admin account',
     'failed' => 'These credentials do not match our records.',
     'password_incorrect' => 'The provided password is incorrect.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-
+    'login_successfully' => 'Login Successfully',
 ];

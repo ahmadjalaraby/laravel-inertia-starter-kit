@@ -58,9 +58,9 @@
 <script>
 import { Icon } from "@iconify/vue";
 import { defineComponent } from "vue";
-import { menuItems } from "@/constant/data";
 import Navmenu from "./Navmenu.vue";
 import { useThemeSettingsStore } from "@/store/themeSettings";
+import {useI18n} from "vue-i18n";
 
 export default defineComponent({
   components: {
@@ -69,7 +69,17 @@ export default defineComponent({
   },
   data() {
     return {
-      menuItems,
+      menuItems: [
+          {
+              isHeadr: true,
+              title: useI18n().t('dashboard.menu'),
+          },
+          {
+              title: useI18n().t('dashboard.dashboard'),
+              icon: "heroicons-outline:home",
+              link: "dashboard",
+          },
+      ],
       openClass: "w-[248px]",
       closeClass: "w-[72px] close_sidebar",
     };

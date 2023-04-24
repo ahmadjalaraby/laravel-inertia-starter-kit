@@ -1,6 +1,6 @@
 <template>
     <main class="app-wrapper">
-        <Header :class="window.width > 1280 ? switchHeaderClass() : ''" />
+        <Header :class="window.width > 1280 ? switchHeaderClass() : ''"/>
         <!-- end header -->
 
         <Sidebar
@@ -24,15 +24,15 @@
             ></div>
         </Transition>
         <!-- mobile sidebar -->
-<!--        <Settings />-->
+        <!--        <Settings />-->
 
         <div
-            class="content-wrapper transition-all duration-150"
             :class="window.width > 1280 ? switchHeaderClass() : ''"
+            class="content-wrapper transition-all duration-150"
         >
             <div
-                class="page-content"
                 :class="this.$route.meta.appheight ? 'h-full' : 'page-min-height'"
+                class="page-content"
             >
                 <div
                     :class="` transition-all duration-150 ${
@@ -41,20 +41,24 @@
               : 'container-fluid'
           }`"
                 >
-                    <Breadcrumbs v-if="!this.$route.meta.hide" />
-                    <router-view v-slot="{ Component }">
-                        <transition name="router-animation" mode="out-in" appear>
-                            <component :is="Component" v-bind="$page.props"></component>
-                        </transition>
-                    </router-view>
+                    <Breadcrumbs v-if="!this.$route.meta.hide"/>
+                    <!--                    <router-view v-slot="{ Component }">-->
+                    <!--                        <transition name="router-animation" mode="out-in" appear>-->
+                    <!--                            <component :is="Component" v-bind="$page.props"></component>-->
+                    <!--                        </transition>-->
+                    <!--                    </router-view>-->
+
+                    <transition appear mode="out-in" name="router-animation">
+                        <slot v-bind="$page.props"/>
+                    </transition>
                 </div>
             </div>
         </div>
         <!-- end page content -->
-        <FooterMenu v-if="window.width < 768" />
+        <FooterMenu v-if="window.width < 768"/>
         <Footer
-            :class="window.width > 1280 ? switchHeaderClass() : ''"
             v-if="window.width > 768"
+            :class="window.width > 1280 ? switchHeaderClass() : ''"
         />
     </main>
 </template>
@@ -104,6 +108,7 @@ export default {
     animation-delay: 0.1s;
     opacity: 0;
 }
+
 .router-animation-leave-active {
     animation: going 0.2s;
 }
@@ -117,6 +122,7 @@ export default {
         opacity: 0;
     }
 }
+
 @keyframes coming {
     from {
         transform: translate3d(0, 4%, 0) scale(0.93);
@@ -127,6 +133,7 @@ export default {
         opacity: 1;
     }
 }
+
 @keyframes slideLeftTransition {
     0% {
         opacity: 0;
@@ -137,6 +144,7 @@ export default {
         transform: translateX(0px);
     }
 }
+
 .mobilemenu-enter-active {
     animation: slideLeftTransition 0.24s;
 }
@@ -148,6 +156,7 @@ export default {
 .page-content {
     @apply md:pt-6 md:pb-[37px] md:px-6 pt-[15px] px-[15px] pb-24;
 }
+
 .page-min-height {
     min-height: calc(var(--vh, 1vh) * 100 - 132px);
 }
