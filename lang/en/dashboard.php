@@ -2,6 +2,7 @@
 
 
 return [
+    'app_name' => 'Scribblr',
     'dashboard' => 'Dashboard',
     'profile' => 'Profile',
     'menu' => 'Menu',

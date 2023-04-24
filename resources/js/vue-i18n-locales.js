@@ -7,9 +7,12 @@ export default {
             "login": "تسجيل الدخول",
             "logout": "تسجيل الخروج",
             "login_to_admin_panel": "تسجيل الدخول لحساب الأدمين",
-            "login_successfully": "تم تسجيل الدخول بنجاح."
+            "login_successfully": "تم تسجيل الدخول بنجاح.",
+            "failed": "فشل تسجيل الدخول، الرجاء التحقق من البيانات.",
+            "test": "adadad"
         },
         "dashboard": {
+            "app_name": "سكريبلر",
             "dashboard": "الرئيسية",
             "profile": "الملف الشخصي",
             "menu": "القائمة",
@@ -50,6 +53,7 @@ export default {
             "login_successfully": "Login Successfully"
         },
         "dashboard": {
+            "app_name": "Scribblr",
             "dashboard": "Dashboard",
             "profile": "Profile",
             "menu": "Menu",
@@ -230,6 +234,9 @@ export default {
         "auth.logout": "تسجيل الخروج",
         "auth.login_to_admin_panel": "تسجيل الدخول لحساب الأدمين",
         "auth.login_successfully": "تم تسجيل الدخول بنجاح.",
+        "auth.failed": "فشل تسجيل الدخول، الرجاء التحقق من البيانات.",
+        "auth.test": "adadad",
+        "dashboard.app_name": "سكريبلر",
         "dashboard.dashboard": "الرئيسية",
         "dashboard.profile": "الملف الشخصي",
         "dashboard.menu": "القائمة",
@@ -385,6 +392,7 @@ export default {
         "auth.login_to_admin_panel": "Login in your admin account",
         "auth.password_incorrect": "The provided password is incorrect.",
         "auth.login_successfully": "Login Successfully",
+        "dashboard.app_name": "Scribblr",
         "dashboard.dashboard": "Dashboard",
         "dashboard.profile": "Profile",
         "dashboard.menu": "Menu",

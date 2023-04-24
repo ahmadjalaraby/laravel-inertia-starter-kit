@@ -15,27 +15,27 @@ const router = createRouter({
     }
   },
 });
-router.beforeEach((to, from, next) => {
-  const titleText = to.name;
-  const words = titleText?.split(" ") ?? '';
-  const wordslength = words.length;
-  for (let i = 0; i < wordslength; i++) {
-    words[i] = words[i][0].toUpperCase() + words[i].substr(1);
-  }
-  document.title = "Scribblr  - " + words;
-
-  /** Navigate to next if middleware is not applied */
-  if (!to.meta.middleware) {
-    return next()
-  }
-
-  const middleware = to.meta.middleware;
-  const context = { to, from, next }
-  return middleware[0]({
-    ...context,
-    next: middlewarePipeline(context, middleware, 1)
-  })
-});
+// router.beforeEach((to, from, next) => {
+//   const titleText = to.name;
+//   const words = titleText?.split(" ") ?? '';
+//   const wordslength = words.length;
+//   for (let i = 0; i < wordslength; i++) {
+//     words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+//   }
+//   document.title = "" + words;
+//
+//   /** Navigate to next if middleware is not applied */
+//   if (!to.meta.middleware) {
+//     return next()
+//   }
+//
+//   const middleware = to.meta.middleware;
+//   const context = { to, from, next }
+//   return middleware[0]({
+//     ...context,
+//     next: middlewarePipeline(context, middleware, 1)
+//   })
+// });
 
 router.afterEach(() => {
   // Remove initial loading

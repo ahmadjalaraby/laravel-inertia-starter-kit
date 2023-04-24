@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Head title="Dashboard"/>
+        <Head :title="useI18n().t('dashboard.dashboard')"/>
         <div>
             <h3>{{ useI18n().t('dashboard.dashboard') }} : {{ locale }}</h3>
         </div>

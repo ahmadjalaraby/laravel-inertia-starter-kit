@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'app_name' => 'سكريبلر',
     'dashboard' => 'الرئيسية',
     'profile' => 'الملف الشخصي',
     'menu' => 'القائمة',
