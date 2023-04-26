@@ -31,7 +31,7 @@
             class="content-wrapper transition-all duration-150"
         >
             <div
-                :class="this.$route.meta.appheight ? 'h-full' : 'page-min-height'"
+                :class="this.$page.props.meta?.appheight ? 'h-full' : 'page-min-height'"
                 class="page-content"
             >
                 <div
@@ -41,16 +41,16 @@
               : 'container-fluid'
           }`"
                 >
-                    <Breadcrumbs v-if="!this.$route.meta.hide"/>
+                    <Breadcrumbs v-if="!this.$page.props.meta?.hide"/>
                     <!--                    <router-view v-slot="{ Component }">-->
                     <!--                        <transition name="router-animation" mode="out-in" appear>-->
                     <!--                            <component :is="Component" v-bind="$page.props"></component>-->
                     <!--                        </transition>-->
                     <!--                    </router-view>-->
 
-                    <transition appear mode="out-in" name="router-animation">
-                        <slot v-bind="$page.props"/>
-                    </transition>
+                    <!--                    <transition appear mode="out-in" name="router-animation">-->
+                    <slot v-bind="$page.props"/>
+                    <!--                    </transition>-->
                 </div>
             </div>
         </div>
@@ -62,46 +62,34 @@
         />
     </main>
 </template>
-<script>
+<script setup>
 import {useThemeSettingsStore} from "@/store/themeSettings";
-
 import Breadcrumbs from "@/components/Breadcrumbs/index.vue";
 import Footer from "../components/Footer/index.vue";
 import Header from "../components/Header/index.vue";
-import Settings from "../components/Settings/index.vue";
 import Sidebar from "../components/Sidebar/index.vue";
-import window from "@/mixins/window";
 import MobileSidebar from "@/components/Sidebar/MobileSidebar.vue";
 import FooterMenu from "@/components/Footer/FooterMenu.vue";
+import useWindowSize from "@/Composables/useWindow";
 
-export default {
-    mixins: [window],
-    components: {
-        Header,
-        Footer,
-        Sidebar,
-        Settings,
-        Breadcrumbs,
-        FooterMenu,
-        MobileSidebar,
-    },
-    methods: {
-        useThemeSettingsStore,
-        switchHeaderClass() {
-            if (
-                useThemeSettingsStore().menuLayout === "horizontal" ||
-                useThemeSettingsStore().sidebarHidden
-            ) {
-                return "ltr:ml-0 rtl:mr-0";
-            } else if (useThemeSettingsStore().sidebarCollasp) {
-                return "ltr:ml-[72px] rtl:mr-[72px]";
-            } else {
-                return "ltr:ml-[248px] rtl:mr-[248px]";
-            }
-        },
-    },
-};
+
+const window = useWindowSize()
+
+const switchHeaderClass = () => {
+    if (
+        useThemeSettingsStore().menuLayout === "horizontal" ||
+        useThemeSettingsStore().sidebarHidden
+    ) {
+        console.log('wadwad')
+        return "ltr:ml-0 rtl:mr-0";
+    } else if (useThemeSettingsStore().sidebarCollasp) {
+        return "ltr:ml-[72px] rtl:mr-[72px]";
+    } else {
+        return "ltr:ml-[248px] rtl:mr-[248px]";
+    }
+}
 </script>
+
 <style lang="scss">
 .router-animation-enter-active {
     animation: coming 0.2s;

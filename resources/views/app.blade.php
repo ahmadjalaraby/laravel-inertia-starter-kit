@@ -27,23 +27,13 @@
     @inertiaHead
 </head>
 <body class="font-sans antialiased">
-<noscript>
-    <strong
-    >We're sorry but Dashcode doesn't work
-        properly without JavaScript enabled. Please enable it to
-        continue.</strong
-    >
-</noscript>
-<div id="loading-bg">
-    <div class="loading-logo text-center">
-        <img src="{{ asset('logo.svg')  }}" alt="Logo"/>
-    </div>
-    <div class="loading">
-        <div class="effect-1 effects"></div>
-        <div class="effect-2 effects"></div>
-        <div class="effect-3 effects"></div>
-    </div>
-</div>
+{{--<noscript>--}}
+{{--    <strong--}}
+{{--    >We're sorry but Scribblr doesn't work--}}
+{{--        properly without JavaScript enabled. Please enable it to--}}
+{{--        continue.</strong--}}
+{{--    >--}}
+{{--</noscript>--}}
 @inertia
 </body>
 </html>

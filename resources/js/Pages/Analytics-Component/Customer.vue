@@ -88,7 +88,7 @@
   </div>
 </template>
 <script>
-import ProgressBar from "@/components/ProgressBar";
+import ProgressBar from "@/components/ProgressBar/index.vue";
 // Image Import
 import customer1 from "@/assets/images/all-img/cus-1.png"
 import customer2 from "@/assets/images/all-img/cus-2.png"

@@ -1,9 +1,8 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use Illuminate\Foundation\Application;
+use App\Http\Controllers\Web\ProfileController;
+use App\Http\Controllers\Web\TagController;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,23 +25,6 @@ Route::post('/locale', function (\Illuminate\Http\Request $request) {
     return back();
 })->name('change.language');
 
-Route::get('/dashboard', function () {
-//    \Illuminate\Support\Facades\App::setlocale('ar');
-    return inertia('Dashboard', [
-        'canLogin' => true,
-        'message' => 'Bye',
-    ]);
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::get('/', function () {
-//    \Illuminate\Support\Facades\App::setlocale('ar');
-    return inertia('Dashboard', [
-        'canLogin' => true,
-        'message' => 'Bye',
-    ]);
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -50,8 +32,26 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/', function () {
+        return redirect()->route('dashboard');
+    });
+    Route::get('/dashboard', function () {
+        return inertia('Dashboard');
+    })->name('dashboard');
+
+    Route::resource('tags', TagController::class)->only(['index']);
+
+    Route::get('/notifications', function () {
+        return inertia('Dashboard');
+    })->name('notifications');
+});
+
+
 Route::fallback(function () {
     return inertia('Error/404');
 });
 
-require __DIR__.'/auth.php';
+
+require __DIR__ . '/auth.php';

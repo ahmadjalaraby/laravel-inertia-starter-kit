@@ -4,6 +4,9 @@
   </div>
 </template>
 <script>
+
+console.log('adwwadwadwdaawd')
+
 export default {
   name: "LoaderElement",
   data() {

@@ -60,11 +60,11 @@ import Textinput from "@/Components/Textinput/index.vue";
 import {useForm} from "@inertiajs/vue3";
 import * as yup from "yup";
 
-import {useRouter} from "vue-router";
 import {useToast} from "vue-toastification";
 import {useI18n} from "vue-i18n";
 
 const useI18nN = useI18n()
+const toast = useToast();
 
 const form = useForm({
     email: null,
@@ -83,7 +83,7 @@ const login = () => {
             toast.success(useI18nN.t('auth.login_successfully'), {
                 timeout: 2000,
             })
-            router.push("/");
+            // router.push("/");
         }
     })
 }
@@ -119,11 +119,6 @@ const onSubmit = async () => {
         }
     }
 }
-
-
-
-const toast = useToast();
-const router = useRouter();
 
 
 </script>

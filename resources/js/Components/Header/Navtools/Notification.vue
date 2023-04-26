@@ -1,8 +1,8 @@
 <template>
-    <Dropdown classMenuItems="md:w-[300px] top-[58px]" classItem="px-4 py-2">
+    <Dropdown classItem="px-4 py-2" classMenuItems="md:w-[300px] top-[58px]">
     <span
         class="relative lg:h-[32px] lg:w-[32px] lg:bg-gray-500-f7 bg-slate-50 text-slate-900 lg:dark:bg-slate-900 dark:text-white cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center"
-    ><Icon icon="heroicons-outline:bell" class="animate-tada" />
+    ><Icon class="animate-tada" icon="heroicons-outline:bell"/>
       <span
           class="absolute lg:right-0 lg:top-0 -top-2 -right-2 h-4 w-4 bg-red-500 text-[8px] font-semibold flex flex-col items-center justify-center rounded-full text-white z-[99]"
       >2</span
@@ -18,16 +18,17 @@
                     Notifications
                 </div>
                 <div class="text-slate-800 dark:text-slate-200 text-xs md:text-right">
-                    <router-link :to="{ name: 'notifications' }" class="underline"
-                    >View all</router-link
+                    <Link :href="route('notifications')" class="underline"
+                    >View all
+                    </Link
                     >
                 </div>
             </div>
             <div class="divide-y divide-slate-100 dark:divide-slate-800">
                 <MenuItem
-                    v-slot="{ active }"
                     v-for="(item, i) in notifications"
                     :key="i"
+                    v-slot="{ active }"
                 >
                     <div
                         :class="`${
@@ -40,11 +41,11 @@
                             <div class="flex-none ltr:mr-3 rtl:ml-3">
                                 <div class="h-8 w-8 bg-white rounded-full">
                                     <img
-                                        :src="item.image"
-                                        alt=""
                                         :class="`${
                       active ? ' border-white' : ' border-transparent'
                     } block w-full h-full object-cover rounded-full border`"
+                                        :src="item.image"
+                                        alt=""
                                     />
                                 </div>
                             </div>
@@ -71,7 +72,7 @@
                                     3 min ago
                                 </div>
                             </div>
-                            <div class="flex-0" v-if="item.unread">
+                            <div v-if="item.unread" class="flex-0">
                 <span
                     class="h-[10px] w-[10px] bg-danger-500 border border-white dark:border-slate-400 rounded-full inline-block"
                 >
@@ -87,13 +88,16 @@
 <script>
 import Dropdown from "@/Components/Dropdown/index.vue";
 import Icon from "@/Components/Icon/index.vue";
-import { MenuItem } from "@headlessui/vue";
-import { notifications } from "@/constant/data.js";
+import {MenuItem} from "@headlessui/vue";
+import {notifications} from "@/constant/data.js";
+import {Link} from '@inertiajs/vue3';
+
 export default {
     components: {
         Icon,
         Dropdown,
         MenuItem,
+        Link,
     },
     data() {
         return {

@@ -36,7 +36,7 @@
               props.row.status === 'paid'
                 ? 'text-success-500 bg-success-500'
                 : ''
-            } 
+            }
             ${
               props.row.status === 'due'
                 ? 'text-warning-500 bg-warning-500'
@@ -57,7 +57,7 @@
                 ? 'text-primary-500 bg-primary-500'
                 : ''
             }
-            
+
              `"
           >
             {{ props.row.status }}
@@ -84,9 +84,9 @@
   </div>
 </template>
 <script>
-import Pagination from "@/components/Pagination";
+import Pagination from "@/components/Pagination/index.vue";
 
-import { recetOrder } from "../../../constant/basic-tablle-data";
+import { recetOrder } from "@/constant/basic-tablle-data";
 
 export default {
   components: {

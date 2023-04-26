@@ -5,7 +5,6 @@ import {createApp, h} from 'vue';
 import {createInertiaApp} from '@inertiajs/vue3';
 import {ZiggyVue} from '../../vendor/tightenco/ziggy/dist/vue.m';
 import {createPinia} from 'pinia'
-import router from './router/index'
 import AuthenticatedLayout from './Layouts/AuthenticatedLayout.vue'
 import {i18nVue} from 'laravel-vue-i18n'
 import {useThemeSettingsStore} from "@/store/themeSettings";
@@ -17,21 +16,33 @@ import "./assets/scss/auth.scss";
 import "./assets/scss/tailwind.scss";
 import "./assets/scss/toast.scss";
 
-
 const pinia = createPinia()
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
+
+// Map Vue Router routes to Inertia routes
+// const route = (name, params) => {
+//     const route = routes.find((route) => route.name === name)
+//
+//     if (!route) {
+//         throw new Error(`Route not found: ${name}`)
+//     }
+//
+//     return {
+//         method: route.method || 'get',
+//         url: route.path,
+//         data: {
+//             ...params,
+//             meta: route.meta,
+//             hide: route.hide,
+//         },
+//     }
+// }
 
 
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
-    // resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/*.vue')),
-    // resolve: name => {
-    //     const page = import.meta.glob('./Pages/**/*.vue')
-    //     page.layout = page.layout || AuthenticatedLayout
-    //     return page
-    // },
     resolve: async (name) => {
         const pages = import.meta.glob('./Pages/**/*.vue')
         const page = await pages[`./Pages/${name}.vue`]()
@@ -68,8 +79,8 @@ createInertiaApp({
                 shareAppContext: true,
                 // rtl: locale === 'ar',
             })
-            .use(router)
-            .use(ZiggyVue, Ziggy)
+            // .use(router)
+            .use(ZiggyVue)
             .mount(el);
         const themeSettingsStore = useThemeSettingsStore()
 

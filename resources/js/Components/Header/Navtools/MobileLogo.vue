@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="{ name: 'dashboard' }">
+  <Link :href="route('dashboard')">
     <img
       src="@/assets/images/logo/logo-c.svg"
       alt=""
@@ -11,9 +11,9 @@
       alt=""
       v-if="useThemeSettingsStore().isDark"
     />
-  </router-link>
+  </Link>
 </template>
 <script setup>
 import {useThemeSettingsStore} from "@/store/themeSettings";
-
+import {Link} from "@inertiajs/vue3";
 </script>

@@ -1,32 +1,32 @@
 <template>
-  <div class="grid md:grid-cols-3 grid-cols-1 gap-5">
-    <div
-      v-for="(item, i) in products"
-      :key="i"
-      class="bg-slate-50 dark:bg-slate-900 p-4 rounded text-center"
-    >
-      <div class="h-12 w-12 rounded-full mb-4 mx-auto">
-        <img
-          :src="item.img"
-          alt=""
-          class="w-full h-full rounded-full"
-        />
-      </div>
-      <span
-        class="text-slate-500 dark:text-slate-300 text-sm mb-1 block font-normal"
-        >{{ item.price }}</span
-      >
-      <span class="text-slate-600 dark:text-slate-300 text-sm mb-4 block">{{
-        item.title
-      }}</span>
-      <router-link
-        to="#"
-        class="btn btn-secondary dark:bg-slate-800 dark:hover:bg-slate-600 block w-full text-center btn-sm"
-      >
-        View More
-      </router-link>
+    <div class="grid md:grid-cols-3 grid-cols-1 gap-5">
+        <div
+            v-for="(item, i) in products"
+            :key="i"
+            class="bg-slate-50 dark:bg-slate-900 p-4 rounded text-center"
+        >
+            <div class="h-12 w-12 rounded-full mb-4 mx-auto">
+                <img
+                    :src="item.img"
+                    alt=""
+                    class="w-full h-full rounded-full"
+                />
+            </div>
+            <span
+                class="text-slate-500 dark:text-slate-300 text-sm mb-1 block font-normal"
+            >{{ item.price }}</span
+            >
+            <span class="text-slate-600 dark:text-slate-300 text-sm mb-4 block">{{
+                    item.title
+                }}</span>
+            <Link
+                class="btn btn-secondary dark:bg-slate-800 dark:hover:bg-slate-600 block w-full text-center btn-sm"
+                href="#"
+            >
+                View More
+            </Link>
+        </div>
     </div>
-  </div>
 </template>
 <script>
 // Import Table
@@ -36,44 +36,48 @@ import products3 from "@/assets/images/all-img/p-3.png"
 import products4 from "@/assets/images/all-img/p-4.png"
 import products5 from "@/assets/images/all-img/p-5.png"
 import products6 from "@/assets/images/all-img/p-6.png"
+import {Link} from "@inertiajs/vue3";
 
 export default {
-  data() {
-    return {
-      products: [
-        {
-          img: products1,
-          price: "$150.00",
-          title: "Car engine oil",
-        },
-        {
-          img: products2,
-          price: "$150.00",
-          title: "Car engine oil",
-        },
-        {
-          img: products3,
-          price: "$150.00",
-          title: "Car engine oil",
-        },
-        {
-          img: products4,
-          price: "$150.00",
-          title: "Car engine oil",
-        },
-        {
-          img: products5,
-          price: "$150.00",
-          title: "Car engine oil",
-        },
-        {
-          img: products6,
-          price: "$150.00",
-          title: "Car engine oil",
-        },
-      ],
-    };
-  },
+    components: {
+        Link,
+    },
+    data() {
+        return {
+            products: [
+                {
+                    img: products1,
+                    price: "$150.00",
+                    title: "Car engine oil",
+                },
+                {
+                    img: products2,
+                    price: "$150.00",
+                    title: "Car engine oil",
+                },
+                {
+                    img: products3,
+                    price: "$150.00",
+                    title: "Car engine oil",
+                },
+                {
+                    img: products4,
+                    price: "$150.00",
+                    title: "Car engine oil",
+                },
+                {
+                    img: products5,
+                    price: "$150.00",
+                    title: "Car engine oil",
+                },
+                {
+                    img: products6,
+                    price: "$150.00",
+                    title: "Car engine oil",
+                },
+            ],
+        };
+    },
 };
 </script>
 <style lang=""></style>
