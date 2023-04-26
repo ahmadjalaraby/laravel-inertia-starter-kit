@@ -31,7 +31,7 @@
             class="content-wrapper transition-all duration-150"
         >
             <div
-                :class="this.$page.props.meta?.appheight ? 'h-full' : 'page-min-height'"
+                :class="routeVar.meta?.appheight ? 'h-full' : 'page-min-height'"
                 class="page-content"
             >
                 <div
@@ -41,7 +41,7 @@
               : 'container-fluid'
           }`"
                 >
-                    <Breadcrumbs v-if="!this.$page.props.meta?.hide"/>
+                    <Breadcrumbs v-if="!routeVar.meta?.hide"/>
                     <!--                    <router-view v-slot="{ Component }">-->
                     <!--                        <transition name="router-animation" mode="out-in" appear>-->
                     <!--                            <component :is="Component" v-bind="$page.props"></component>-->
@@ -49,7 +49,7 @@
                     <!--                    </router-view>-->
 
                     <!--                    <transition appear mode="out-in" name="router-animation">-->
-                    <slot v-bind="$page.props"/>
+                    <slot />
                     <!--                    </transition>-->
                 </div>
             </div>
@@ -71,8 +71,10 @@ import Sidebar from "../components/Sidebar/index.vue";
 import MobileSidebar from "@/components/Sidebar/MobileSidebar.vue";
 import FooterMenu from "@/components/Footer/FooterMenu.vue";
 import useWindowSize from "@/Composables/useWindow";
+import useRoute from "@/Composables/useRoute";
 
 
+const routeVar = useRoute()
 const window = useWindowSize()
 
 const switchHeaderClass = () => {

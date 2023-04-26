@@ -141,11 +141,11 @@ export default defineComponent({
                     link: "#",
                     child: [
                         {
-                            childtitle: useI18n().t('dashboard.create_tag'),
+                            childtitle: useI18n().t('dashboard.tags_create'),
                             childlink: 'tags.index',
                         },
                         {
-                            childtitle: useI18n().t('dashboard.list_tag'),
+                            childtitle: useI18n().t('dashboard.tags_index'),
                             childlink: 'tags.index',
                         },
                     ],

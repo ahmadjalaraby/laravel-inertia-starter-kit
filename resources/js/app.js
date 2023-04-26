@@ -15,6 +15,7 @@ import "vue-toastification/dist/index.css";
 import "./assets/scss/auth.scss";
 import "./assets/scss/tailwind.scss";
 import "./assets/scss/toast.scss";
+import routes from "@/router/route";
 
 const pinia = createPinia()
 
@@ -38,8 +39,8 @@ const appName = window.document.getElementsByTagName('title')[0]?.innerText || '
 //         },
 //     }
 // }
-
-
+//
+//
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
